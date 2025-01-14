@@ -1,9 +1,9 @@
 - name: Install python
   ansible.builtin.dnf:
     name:
-      - gcc
       - python3
-      - pythone-devel
+      - gcc
+      - python3-devel
     state: installed
 
 - name: Import App Prereq
