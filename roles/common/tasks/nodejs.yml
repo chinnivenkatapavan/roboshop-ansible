@@ -9,7 +9,7 @@
     name: nodejs
     state: installed
 
-# importing local folder file, so we use include_tasks
+
 - name: Import App prerequisites
   ansible.builtin.include_task:
     file: app-prereq.yml
