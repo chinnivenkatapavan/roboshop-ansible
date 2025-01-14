@@ -19,5 +19,5 @@
     path: /app
 
 - name: Importing systemd files
-  ansible.builtin.include_task:
+  ansible.builtin.include_tasks:
     file: systemd.yml
