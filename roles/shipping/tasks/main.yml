@@ -1,5 +1,6 @@
-- name: Ipmort Java file
+- name: Import Java file
   ansible.builtin.include_role:
+    name: common
     tasks_from: java
 
 - name: Install mysql
