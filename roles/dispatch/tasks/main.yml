@@ -1,6 +1,6 @@
 - name: Copy dispatch service file
   ansible.builtin.copy:
-    src: "{{ app_name }}".service
+    src: dispatch.service
     dest: /etc/systemd/system/{{ app_name }}.service
 
 - name: Install golang
