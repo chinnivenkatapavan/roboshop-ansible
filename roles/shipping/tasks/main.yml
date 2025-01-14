@@ -14,7 +14,7 @@
   community.mysql.mysql_db:
     state: import
     name: all
-    target: /app/db/schema.sq1
+    target: /app/db/schema.sql
     login_host: mysql-dev.azdevops2704.online
     login_user: root
     login_password: RoboShop@1
