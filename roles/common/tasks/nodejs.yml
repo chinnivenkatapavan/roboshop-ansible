@@ -9,9 +9,9 @@
     name: nodejs
     state: installed
 
-
+# importing local folder file, so we use include_tasks
 - name: Import App prerequisites
-  ansible.builtin.include_task:
+  ansible.builtin.include_tasks:
     file: app-prereq.yml
 
 - name: Install Nodejs Dependencies
