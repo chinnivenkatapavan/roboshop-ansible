@@ -1,5 +1,5 @@
 - name: Install mysql server
-  amsible.builtin.dnf:
+  ansible.builtin.dnf:
     name: mysql-server
     state: installed
 
