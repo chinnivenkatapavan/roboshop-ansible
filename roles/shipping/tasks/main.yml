@@ -23,7 +23,7 @@
   community.mysql.mysql_db:
     state: import
     name: all
-    target: /app/db/app-user.sq1
+    target: /app/db/app-user.sql
     login_host: mysql-dev.azdevops2704.online
     login_user: root
     login_password: RoboShop@1
@@ -32,7 +32,7 @@
   community.mysql.mysql_db:
     state: import
     name: all
-    target: /app/db/master-data.sq1
+    target: /app/db/master-data.sql
     login_host: mysql-dev.azdevops2704.online
     login_user: root
     login_password: RoboShop@1
