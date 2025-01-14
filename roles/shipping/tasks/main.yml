@@ -1,0 +1,35 @@
+- name: Ipmort Java file
+  ansible.builtin.include_role:
+    tasks_from: java
+
+- name: Install mysql
+  ansible.builtin.dnf:
+    name: mysql
+    state: installed
+
+- name: load schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: app/db/schema.sq1
+    login_host: mysql-dev.azdevops2704.online
+    login_user: root
+    login_password: RoboShop@1
+
+- name: load app-user
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: app/db/app-user.sq1
+    login_host: mysql-dev.azdevops2704.online
+    login_user: root
+    login_password: RoboShop@1
+
+- name: load master-data
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: app/db/master-data.sq1
+    login_host: mysql-dev.azdevops2704.online
+    login_user: root
+    login_password: RoboShop@1
