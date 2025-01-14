@@ -1,3 +1,23 @@
-- name: Test
-  ansible.builtin.debug:
-    msg: Hello
+- name: Disbale default nodejs version
+  ansible.builtin.shell: dnf module disable nodejs -y
+
+- name: Enable nodejs version
+  ansible.builtin.shell: dnf module enable nodejs:20 -y
+
+- name: Install nodejs
+  ansible.builtin.dnf:
+    name: nodejs
+    state: installed
+
+# importing local folder file, so we use include_tasks
+- name: Import App prerequisites
+  ansible.builtin.include_task:
+    file: app-prereq.yml
+
+- name: Install Nodejs Dependencies
+  community.general.npm:
+    path: /app
+
+- name: Importing systemd files
+  ansible.builtin.include_task:
+    file: systemd.yml
