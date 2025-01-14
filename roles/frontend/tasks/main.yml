@@ -27,7 +27,7 @@
 - name: Download and extract frontend content
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
-    dest: /usr/local/bin
+    dest: /usr/share/nginx/html
     remote_src: yes
 
 - name: start nginx service
