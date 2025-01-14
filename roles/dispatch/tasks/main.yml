@@ -14,10 +14,15 @@
     tasks_from: app-prereq
 
 - name: Build Go Project
-  ansible.builtin.shell:
-    - go mod init dispatch
-    - go get
-    - go build
+  ansible.builtin.shell: |
+    if [ ! -f go.mod ]; then
+      go mod init dispatch
+    fi
+    go get
+    go build
+  args:
+    chdir: /path/to/your/go/project
+
 
 - name: Import dispatch system service
   ansible.builtin.include_role:
