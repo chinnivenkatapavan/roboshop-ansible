@@ -1,6 +1,6 @@
 - name: Copy dispatch service file
   ansible.builtin.copy:
-    src: dispatch.service
+    src: {{ app_name }}.service
     dest: /etc/systemd/system/{{ app_name }}.service
 
 - name: Install golang
@@ -14,17 +14,10 @@
     tasks_from: app-prereq
 
 - name: Build Go Project
-  hosts: localhost
-  gather_facts: no
-  tasks:
-    - name: Initialize Go module
-      command: go mod init dispatch
-
-    - name: Get dependencies
-      command: go get
-
-    - name: Build Go project
-      command: go build
+  ansible.builtin.shell:
+    - go mod init dispatch
+    - go get
+    - go build
 
 - name: Import dispatch system service
   ansible.builtin.include_role:
