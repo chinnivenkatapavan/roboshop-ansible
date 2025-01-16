@@ -1,5 +1,4 @@
 [dev]
-default:
 	git pull
 	ansible-playbook -i $(app_name)-dev.azdevops2704.online, \
 		-e ansible_user=pavan \
@@ -7,7 +6,6 @@ default:
 		-e app_name=$(app_name) roboshop.yml
 
 [prod]
-default:
 	git pull
 	ansible-playbook -i $(app_name)-prod.azdevops2704.online, \
 		-e ansible_user=pavan \
