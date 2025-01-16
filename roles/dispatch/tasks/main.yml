@@ -1,5 +1,5 @@
 - name: Copy dispatch service file
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: dispatch.service
     dest: /etc/systemd/system/dispatch.service
 

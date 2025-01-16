@@ -4,7 +4,7 @@
     tasks_from: nodejs
 
 - name: Copying mongod repo file
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
@@ -15,6 +15,6 @@
 
 - name: Load master data
   community.mongodb.mongodb_shell:
-    login_host: mongodb-dev.azdevops2704.online
+    login_host: mongodb-{{ ENV }}.azdevops2704.online
     file: "/app/db/master-data.js"
     idempotent: yes
