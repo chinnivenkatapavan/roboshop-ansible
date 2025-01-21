@@ -1,6 +1,7 @@
 - name: Install python
   ansible.builtin.dnf:
     name:
+      - PyMySQL
       - python3
       - gcc
       - python3-devel
