@@ -1,10 +1,10 @@
 - name: Install python
   ansible.builtin.dnf:
     name:
-      - PyMySQL
       - python3
       - gcc
       - python3-devel
+      - python3-mysqlclient
     state: installed
 
 - name: Import App Prereq
