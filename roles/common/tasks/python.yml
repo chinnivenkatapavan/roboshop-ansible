@@ -16,6 +16,7 @@
     chdir: /app
   ansible.builtin.pip:
     requirements: /app/requirements.txt
+    executable: pip3
 
 - name: Import System services
   ansible.builtin.include_tasks:
