@@ -16,8 +16,8 @@
 
 - name: Add Application user
   community.rabbitmq.rabbitmq_user:
-    user: roboshop
-    password: roboshop123
+    user: {{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/rabbitmq:AMQP_USER token={{ vault_token }} url=http://vault.azdevops2704.online:8200') }}
+    password: {{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/RABBITMQ:AMQP_PASS token={{ vault_token }} url=http://vault.azdevops2704.online:8200') }}
     vhost: /
     configure_priv: .*
     read_priv: .*
