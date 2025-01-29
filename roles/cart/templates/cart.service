@@ -4,7 +4,7 @@ Description = Cart Service
 User=roboshop
 Environment=REDIS_HOST={{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/cart:REDIS_HOST token={{ token }} url=http://vault.azdevops2704.online:8200') }}
 Environment=CATALOGUE_HOST={{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/cart:CATALOGUE_HOST token={{ token }} url=http://vault.azdevops2704.online:8200') }}
-Environment=CATALOGUE_PORT={{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/cart:CATALOGUE_PORT={{ token }} url=http://vault.azdevops2704.online:8200') }}
+Environment=CATALOGUE_PORT={{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/cart:CATALOGUE_PORT token={{ token }} url=http://vault.azdevops2704.online:8200') }}
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=cart
 
