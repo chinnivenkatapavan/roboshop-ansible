@@ -10,7 +10,7 @@
     ports:
       - "8080:8080"
     env:
-      MONGO: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/user:MONGO token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
-      MONGO_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/user:MONGO_URL token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
-      REDIS_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/user:REDIS_URL token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
+      MONGO: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/user:MONGO token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
+      MONGO_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/user:MONGO_URL token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
+      REDIS_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/user:REDIS_URL token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
 

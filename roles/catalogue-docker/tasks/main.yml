@@ -11,15 +11,15 @@
     ports:
       - "8080:8080"
     env:
-        MONOG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:MONGO token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
-        MONGO_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:MONGO_URL token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
+        MONOG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:MONGO token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
+        MONGO_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:MONGO_URL token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
 
 - name: Schema container
   community.docker.docker_container:
     name: catalogue
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
     env:
-      DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:DB_TYPE token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
-      APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:APP_GIT_URL token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
-      DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:DB_HOST token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
-      SCHEMA_FILE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:SCHEMA_FILE: token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
+      DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:DB_TYPE token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
+      APP_GIT_URL: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:APP_GIT_URL token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
+      DB_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:DB_HOST token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
+      SCHEMA_FILE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/catalogue:SCHEMA_FILE: token={{ token }} url=http://vault-internal.azdevops2704.online:8200') }}"
