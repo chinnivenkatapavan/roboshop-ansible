@@ -20,7 +20,7 @@
     - schema
     - master-data
   community.docker.docker_container:
-    name: shipping-schema-{{item}}
+    name: shipping-schema-{{ item }}
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
     env:
       DB_TYPE: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/shipping:DB_TYPE token={{ vault_token }} url=http://vault-internal.azdevops2704.online:8200') }}"
