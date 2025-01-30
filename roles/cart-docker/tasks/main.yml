@@ -3,3 +3,13 @@
     name: common
     tasks_from: docker_install
 
+- name: Start App container
+  community.docker.docker_container:
+    name: user
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/cart
+    ports:
+      - "8080:8080"
+    env:
+      CATALOGUE_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/cart:CATALOGUE_HOST token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
+      CATALOGUE_PORT: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/cart:CATALOGUE_PORT token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
+      REDIS_HOST: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=roboshop-{{ ENV }}/cart:REDIS_HOST token={{ token }} url=http://vault.azdevops2704.online:8200') }}"
